@@ -16,13 +16,13 @@ export class Second {
     // Función para mantener el mouse encima del penúltimo elemento
     async hoverOverSecond() {
         await this.second.hover();
-        console.log('Mouse colocado sobre el penúltimo elemento.');
+        console.log('Mouse colocado sobre el Segundo elemento.');
     }
 
     // Función para hacer clic en desplegable dentro del penúltimo elemento
     async clickDesplegable() {
         await this.desplegable.click(); // Ahora restringido al contexto del penúltimo
-        console.log('Click realizado en el desplegable del penúltimo elemento.');
+        console.log('Click realizado en el desplegable del Segundo elemento.');
     }
 
     // Función para hacer clic en "delete"
