@@ -1,0 +1,358 @@
+{
+	"id": "0151ef4a-6ab5-40b3-ab0e-85312481e37b",
+	"name": "API-testing",
+	"timestamp": "2024-11-23T11:45:38.937Z",
+	"collection_id": "30074083-ca2fb49d-dbfb-407c-b2d7-cee2ae070081",
+	"folder_id": 0,
+	"environment_id": "30074083-4f07e8ef-8c1d-49b1-871a-315dd53cd94e",
+	"totalPass": 31,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-11-23T11:45:36.098Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "f7761eec-86bc-4bb7-8e10-a996f66abac6",
+			"name": "Create New Item",
+			"url": "https://todo.ly/api/items.json",
+			"time": 870,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Save item ID to collection variable": true,
+				"Status code is 200": true,
+				"Response time is less than 1000ms": true,
+				"Item was created with correct content": true,
+				"Item ID is a valid integer": true,
+				"Item is not checked by default": true
+			},
+			"testPassFailCounts": {
+				"Save item ID to collection variable": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item was created with correct content": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item ID is a valid integer": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item is not checked by default": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				870
+			],
+			"allTests": [
+				{
+					"Save item ID to collection variable": true,
+					"Status code is 200": true,
+					"Response time is less than 1000ms": true,
+					"Item was created with correct content": true,
+					"Item ID is a valid integer": true,
+					"Item is not checked by default": true
+				}
+			]
+		},
+		{
+			"id": "10119316-c10c-45b0-911a-6ce7126be613",
+			"name": "Update Item to Done",
+			"url": "https://todo.ly/api/items/11612986.json",
+			"time": 213,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Item is marked as done": true,
+				"Item ID matches the collection variable": true,
+				"Response contains expected properties": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item is marked as done": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item ID matches the collection variable": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains expected properties": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				213
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Item is marked as done": true,
+					"Item ID matches the collection variable": true,
+					"Response contains expected properties": true
+				}
+			]
+		},
+		{
+			"id": "06ef2d0f-df09-4ba7-9021-212a27c9a407",
+			"name": "Get All Filters",
+			"url": "https://todo.ly/api/filters.json",
+			"time": 210,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Response is an array": true,
+				"Each filter contains expected properties": true,
+				"Array length is greater than zero": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is an array": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Each filter contains expected properties": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Array length is greater than zero": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				210
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Response is an array": true,
+					"Each filter contains expected properties": true,
+					"Array length is greater than zero": true
+				}
+			]
+		},
+		{
+			"id": "51dab04f-fd22-4d9b-86c0-5383bbd71de3",
+			"name": "Get Done Items of a Filter",
+			"url": "https://todo.ly/api/filters/0/doneitems.json",
+			"time": 210,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Response is an array": true,
+				"All items are marked as done": true,
+				"Each item contains expected properties": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is an array": {
+					"pass": 1,
+					"fail": 0
+				},
+				"All items are marked as done": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Each item contains expected properties": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				210
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Response is an array": true,
+					"All items are marked as done": true,
+					"Each item contains expected properties": true
+				}
+			]
+		},
+		{
+			"id": "167a61a1-11ab-477f-851b-e4b24ede28c0",
+			"name": "Get All Items",
+			"url": "https://todo.ly/api/items.json",
+			"time": 211,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Response is an array": true,
+				"Each item contains expected properties": true,
+				"Array length is greater than zero": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is an array": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Each item contains expected properties": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Array length is greater than zero": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				211
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Response is an array": true,
+					"Each item contains expected properties": true,
+					"Array length is greater than zero": true
+				}
+			]
+		},
+		{
+			"id": "b241693c-e262-47d1-bc3a-c4cecb64d1b3",
+			"name": "Get Item By ID",
+			"url": "https://todo.ly/api/items/11612986.json",
+			"time": 206,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Item ID matches the collection variable": true,
+				"Item contains expected properties": true,
+				"Content is a string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item ID matches the collection variable": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item contains expected properties": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content is a string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				206
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Item ID matches the collection variable": true,
+					"Item contains expected properties": true,
+					"Content is a string": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1920,
+	"collection": {
+		"requests": [
+			{
+				"id": "f7761eec-86bc-4bb7-8e10-a996f66abac6",
+				"method": "POST"
+			},
+			{
+				"id": "10119316-c10c-45b0-911a-6ce7126be613",
+				"method": "POST"
+			},
+			{
+				"id": "06ef2d0f-df09-4ba7-9021-212a27c9a407",
+				"method": "GET"
+			},
+			{
+				"id": "51dab04f-fd22-4d9b-86c0-5383bbd71de3",
+				"method": "GET"
+			},
+			{
+				"id": "167a61a1-11ab-477f-851b-e4b24ede28c0",
+				"method": "GET"
+			},
+			{
+				"id": "b241693c-e262-47d1-bc3a-c4cecb64d1b3",
+				"method": "GET"
+			}
+		]
+	}
+}
