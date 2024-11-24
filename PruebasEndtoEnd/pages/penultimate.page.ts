@@ -12,49 +12,47 @@ export class Penultimate {
         this.priority = page.locator('#Div1 > span:nth-child(1)');
         this.penultimateText = this.penultimate.locator('.ItemContentDiv');
     }
-    // Función para mantener el mouse encima de penultimate
+
     async hoverOverPenultimate() {
+        await this.penultimate.waitFor({ state: 'visible' });
         await this.penultimate.hover();
         console.log('Mouse colocado sobre el penúltimo elemento.');
     }
 
-    // Función para hacer clic en desplegable dentro del penúltimo
     async clickDesplegable() {
+        await this.desplegable.waitFor({ state: 'visible' });
         await this.desplegable.click();
         console.log('Click realizado en el desplegable del penúltimo elemento.');
     }
 
-    // Función para hacer clic en prioridad
     async clickPriority() {
+        await this.priority.waitFor({ state: 'visible' });
         await this.priority.click();
         console.log('Click realizado en la prioridad 1 del penúltimo elemento.');
     }
 
-// Verificar que el texto del penúltimo elemento cambie a color rojo
-async verifyPenultimateTextColorIsRed() {
-    // Obtener el color inicial
-    const initialColor = await this.penultimate.locator('.ItemContentDiv').evaluate((element) => {
-        return window.getComputedStyle(element).color;
-    });
-
-    // Mostrar el color inicial en la consola
-    console.log('Color inicial del texto:', initialColor);
-
-    // Esperar 5 segundos
-    await this.penultimate.page().waitForTimeout(5000);
-    console.log('Esperando 5 segundos antes de verificar el color final.');
-
-    // Realizar la verificación del color final (rojo)
-    const finalColor = await this.penultimate.locator('.ItemContentDiv').evaluate((element) => {
-        return window.getComputedStyle(element).color;
-    });
-
-    // Comprobar si el color final es rojo
-    expect(finalColor).toBe('rgb(255, 51, 0)');
-    console.log('El texto del penúltimo elemento cambió correctamente a color rojo.');
-}
-
-
-
+    async verifyPenultimateTextColorIsRed() {
+        console.log('Esperando que el color del texto cambie a rojo...');
+    
+        // Usar `waitForFunction` pasando una función que interactúe con el elemento directamente
+        const isColorRed = await this.penultimateText.page().waitForFunction(
+            (locator) => {
+                const element = locator;
+                if (!element) return false; // Continúa esperando si el elemento no está disponible
+                const color = window.getComputedStyle(element).color;
+                return color === 'rgb(255, 51, 0)'; // Color rojo esperado
+            },
+            await this.penultimateText.elementHandle(), // Pasar el `elementHandle` del Locator
+            { timeout: 20000 } // Tiempo de espera ajustado
+        );
+    
+        if (isColorRed) {
+            console.log('El texto del penúltimo elemento cambió correctamente a color rojo.');
+        } else {
+            throw new Error('El texto del penúltimo elemento no cambió a color rojo.');
+        }
+    }
+    
+    
     
 }

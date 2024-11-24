@@ -24,7 +24,7 @@ export class ToDoHomePage {
         this.tosCheckbox = page.locator('#ctl00_MainContent_SignupControl1_CheckBoxTerms');
         this.signUpButton = page.locator('#ctl00_MainContent_SignupControl1_ButtonSignup');
     }
-    
+
     async goto() {
         await this.page.goto(this.url);
     }
@@ -35,7 +35,7 @@ export class ToDoHomePage {
         await expect(this.signUpDialog).toBeVisible();
     }
 
-    async llenarDatosNuevoUsuario(fullName: string, email: string, password = "InsecurePwd") : Promise<void> {
+    async llenarDatosNuevoUsuario(fullName: string, email: string, password = "InsecurePwd"): Promise<void> {
         await this.fullNameInput.waitFor({ state: 'visible' });
         await this.fullNameInput.fill(fullName);
         await this.emailInput.fill(email);
@@ -43,8 +43,11 @@ export class ToDoHomePage {
         await this.tosCheckbox.check();
     }
 
-    async guardarNuevoUsuario(){
-        await this.signUpButton.click(); // onclick should have redirected to projects page
+    async guardarNuevoUsuario() {
+        await this.signUpButton.click(); // Hacer clic en el botón de registro
+        // Verificar que el usuario fue registrado exitosamente
         await expect(this.page.getByText('Logout')).toBeVisible();
+        console.log('Usuario registrado exitosamente, y se muestra el botón Logout.');
     }
+    
 }
